@@ -6,6 +6,7 @@ import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -18,8 +19,11 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.util.FastColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.data.ForgeItemTagsProvider;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -33,8 +37,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import io.github.jaredshapiro321.templatemod.util.Color;
 
-import java.awt.Color;
+//import java.awt.Color;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -263,6 +268,13 @@ public class TemplateMod
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
             
+            Color c = new Color("#00FF00");
+            
+            
+            LOGGER.info(c.toString());
+            LOGGER.info(c.toHex());
+            
+            /*
             try {
             	ResourceManager resourceManager = Minecraft.getInstance().getResourceManager();
 				ResourceLocation resourceLocation = new ResourceLocation("templatemod", "textures/item/generated/test_item.png");
@@ -301,7 +313,7 @@ public class TemplateMod
 		        }
 		        
 		        HashSet<Item> ingots = new HashSet<Item>();
-		        
+		        //LOGGER.info(ItemTags.LEAVES.toString());
 		        LOGGER.info("Ingots");
 		        for (Item item : ForgeRegistries.ITEMS.getValues()) {
 		        	
@@ -391,13 +403,14 @@ public class TemplateMod
 		        
 		        
 
+		        Minecraft.getInstance().getResourcePackRepository().reload();
 		        Minecraft.getInstance().getResourcePackRepository().getAvailableIds().forEach(System.out::println);
 		        ArrayList<String> collection = new ArrayList<String>();
 		        collection.add("file/templatemod_generated");
 		        
 		        Minecraft.getInstance().getResourcePackRepository().setSelected(collection);
 		        Minecraft.getInstance().getResourcePackRepository().reload();
-		        
+		        */
 				/*
 				
 				
@@ -462,13 +475,14 @@ public class TemplateMod
 	                }
 	            }
 				*/
-				
-				image.close();
+			/*	
+				//image.close();
             } catch (IOException e) {
 				// TODO Auto-generated catch block
 				LOGGER.info("OH GOD OH JEEZ");
 				//e.printStackTrace();
 			}
+			*/
         }
     }
 }
