@@ -38,6 +38,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import io.github.jaredshapiro321.templatemod.util.Color;
+import io.github.jaredshapiro321.templatemod.util.Pallette;
 
 //import java.awt.Color;
 import java.io.File;
@@ -46,6 +47,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -268,11 +270,51 @@ public class TemplateMod
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
             
-            Color c = new Color("#00FF00");
+            Color c1 = new Color(53, 53, 53);
+            Color c2 = new Color(94, 94, 94);
+            Color c3 = new Color(114, 114, 114);
+            Color c4 = new Color(130, 130, 130);
+            Color c5 = new Color(168, 168, 168);
+            Color c6 = new Color(216, 216, 216);
+            Color c7 = new Color(255, 255, 255);
             
             
-            LOGGER.info(c.toString());
-            LOGGER.info(c.toHex());
+            //LOGGER.info(c.toString());
+            //LOGGER.info(c.toHexString());
+            //LOGGER.info(Integer.toString(c.getRed()));
+            //LOGGER.info(Integer.toString(c.getBlue()));
+            //LOGGER.info(Integer.toString(c.getGreen()));
+            
+            //LOGGER.info(Double.toString(Math.sqrt(Color.getDistanceSquared(c, c1))));
+            //LOGGER.info(Double.toString(Color.getRedMeanDistance(c, c1)));
+            
+            Pallette colors = new Pallette();
+            //colors.add(c);
+            colors.add(c1);
+            colors.add(c2);
+            colors.add(c3);
+            colors.add(c4);
+            colors.add(c5);
+            colors.add(c6);
+            colors.add(c7);
+            HashMap<Color, Double> distances = colors.getMaxDistances();
+            
+            for (Double distance : distances.values()) {
+            	LOGGER.info(Double.toString(distance));
+            }
+            
+            
+            // Populate the list with MyObject instances
+
+            // Sort the list using your custom comparator
+            
+            
+            
+            //LOGGER.info(c.toBinaryString());
+            
+            
+            
+            
             
             /*
             try {
